@@ -6,9 +6,9 @@ on:
       - staging
 
 jobs:
-  setup:
-    uses: ./.github/workflows/setup.yml
+  code-quality:
+    uses: ./.github/workflows/code-quality.yml
 
   deploy:
-    needs: setup
+    needs: code-quality
     uses: ./.github/workflows/netlify-deploy.yml
