@@ -1,0 +1,38 @@
+name: Code quality
+
+on:
+  workflow_call:
+
+jobs:
+  eslint:
+    name: Run ESLint
+    runs-on: ubuntu-latest
+
+    steps:
+      # Get code from repo
+      - uses: actions/checkout@v2
+
+      # Install packages
+      - name: 🔩 Installing packages
+        run: yarn
+
+      # Lint code
+      - name: 🛠️ Linting code
+        run: yarn lint
+
+  prettier:
+    needs: eslint
+    name: Run Prettier
+    runs-on: ubuntu-latest
+
+    steps:
+      # Get code from repo
+      - uses: actions/checkout@v2
+
+      # Install packages
+      - name: 🔩 Installing packages
+        run: yarn
+
+      # Format code
+      - name: 🛠️ Formatting code
+        run: yarn format

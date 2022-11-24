@@ -8,6 +8,8 @@
   "scripts": {
     "act:pull_request": "act pull_request --secret-file .secrets --container-architecture linux/amd64",
     "build": "echo building",
-    "test": "echo test"
+    "test": "echo test",
+    "lint": "echo lint",
+    "format": "echo format"
   }
 }
