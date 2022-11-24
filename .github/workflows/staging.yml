@@ -1,0 +1,14 @@
+name: Staging workflow
+
+on:
+  pull_request:
+    branches:
+      - staging
+
+jobs:
+  setup:
+    uses: PeterSkriba/devops/.github/workflows/setup.yml@main
+
+  deploy:
+    needs: setup
+    uses: PeterSkriba/devops/.github/workflows/netlify-deploy.yml@main
