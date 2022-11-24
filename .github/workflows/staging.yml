@@ -7,8 +7,8 @@ on:
 
 jobs:
   setup:
-    uses: PeterSkriba/devops/tree/develop/.github/workflows/setup.yml@main
+    uses: ./.github/workflows/setup.yml@develop
 
   deploy:
     needs: setup
-    uses: PeterSkriba/devops/tree/develop/.github/workflows/netlify-deploy.yml@main
+    uses: ./.github/workflows/netlify-deploy.yml@develop
