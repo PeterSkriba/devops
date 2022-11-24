@@ -1,0 +1,13 @@
+{
+  "name": "devops",
+  "version": "1.0.0",
+  "repository": "https://github.com/PeterSkriba/devops.git",
+  "author": "Peter Škríba <peter.skriba@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "act:pull_request": "act pull_request --secret-file .secrets --container-architecture linux/amd64",
+    "build": "echo building",
+    "test": "echo test"
+  }
+}

@@ -1,0 +1,50 @@
+name: Netlify deploy workflow
+#run-name: ${{ github.actor }} is deploying to Netlify
+
+on:
+  workflow_call:
+    #pull_request:
+    #  branches:
+    #    - staging
+    #  types:
+    #    - closed
+
+env:
+  message: ${{ github.event.pull_request.title }}
+
+jobs:
+  deploy:
+    name: Deploy application
+    runs-on: ubuntu-latest
+
+    steps:
+      # Run yarn test
+      - name: 🚀 Publishing to Netlify
+        run: yarn test
+
+    # if: github.event.pull_request.merged == true
+    # name: 🖥️ Netlify deploy
+    #runs-on: ubuntu-latest
+
+    #steps:
+    # Get code from repo
+    #  - name: Checkout code
+    #    uses: actions/checkout@v2
+
+    # Run yarn install
+    #  - name: 🔩 Installing packages
+    #    run: yarn
+
+    # Run yarn build
+    #  - name: 🛠️ Building application
+    #    run: yarn build
+
+    # Deploy to Netlify using our dev secrets
+    #- name: 🚀 Publishing to Netlify
+    #  id: publish
+    #  uses: netlify/actions/cli@master
+    #  with:
+    #    args: deploy --dir=dist --alias=stg --message="${{ env.message }}"
+    #  env:
+    #    NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+    #    NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
